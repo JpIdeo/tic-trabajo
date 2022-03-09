@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: ¿Por Que?
+title: ¿Por Qué?
 draft: false
 date: 2022/03/09
-short: ¿Por que utilizar Cosas Perdidas Ideo?
+short: ¿Por qué utilizar Cosas Perdidas Ideo?
 ---
