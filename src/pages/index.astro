@@ -2,7 +2,17 @@
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
+
 <BaseLayout title="Homepage">
-  <h1>Cosas Perdidas</h1>
+  <h1>¿Objetos Perdidos?</h1>
   <p>Ultimos objetos perdidos</p>
+<div class="list-of-items">
+  <div class="item-preview">
+    <a href="/item">
+      <div class="item-picture"></div>
+    </a>
+    <div class="description">
+    Objeto Perdido 1
+    </div>
+  </div>
 </BaseLayout>
