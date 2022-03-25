@@ -8,7 +8,7 @@ allPosts.sort((a,b) => {
   return new Date(b.date).getTime() - new Date(a.date).getTime();
 })
 ---
-<BaseLayout title="Homepage">
+<BaseLayout title="Blog">
   <h1>Blog</h1>
 
   {allPosts.map((post) => (
