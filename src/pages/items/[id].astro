@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { Markdown } from 'astro/components'
+import Airtable from 'airtable';
+
+export async function getStaticPaths() {
+  let apiKey = import.meta.env.AIRTABLE_API_KEY;  
+  let dbID = import.meta.env.AIRTABLE_DB_ID;
+  console.log(import.meta.env.AIRTABLE_DB_ID);
+  let airtable = new Airtable({apiKey}).base(dbID);
+
+  let elements = await airtable('objetos').select({
+    view: 'Grid view'
+  }).firstPage();
+
+  return elements.map((record) => ({
+    params: { id: record.id },
+    props: {
+      ...record.fields
+    }
+  }));
+}
+
+// const {aid} = Astro.request.params;
+const item = Astro.props;
+---
+<BaseLayout title="Homepage">
+  <h1>
+  <a href="/lost_item">Objetos Perdidos</a> &lt;
+   {item.Name}
+  </h1>
+  
+  <div class="List-of-items">
+    <div class="item-picture">
+      <img src={item.Imagen[0].url}/>      
+    </div>
+    <div class="description">
+        <Markdown>
+          {item.descripcion}    
+        </Markdown>    
+    </div>
+  </div>
+</BaseLayout>
